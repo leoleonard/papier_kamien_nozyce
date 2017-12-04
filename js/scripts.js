@@ -28,6 +28,7 @@ var newGameElem = document.getElementById('js-newGameElement'),
 pickElem = document.getElementById('js-playerPickElement'),
 resultsElem = document.getElementById('js-resultsTableElement');
 
+
 function setGameElements() {
 switch(gameState) {
   case 'started':
@@ -100,12 +101,11 @@ switch(gameState) {
   var winnerIs = 'player';
 
     if (playerPick == computerPick) {
-        winnerIs = 'noone'; // remis
+        winnerIs = 'remis!'; // remis
     } else if (
         (computerPick == 'rock' &&  playerPick == 'scissors') ||
         (computerPick == 'scissors' &&  playerPick == 'paper') ||
         (computerPick == 'paper' &&  playerPick == 'rock')) {
-
         winnerIs = 'computer';
     }
 
@@ -116,7 +116,7 @@ switch(gameState) {
         computerResultElem.innerHTML = "Win!";
         computer.score++;
     }
-
+      setGamePoints();
 }
 
 function playerPick(playerPick) {
@@ -135,4 +135,16 @@ function setGamePoints() {
 
 
 
-// kod posypal sie po dodaniu tla do body
+// podliczenie punktow
+function endGame () {
+if (player.score == 10) {
+  prompt (player.name + "wins!");
+  gameState = "ended";
+  setGameElements();
+} else if (computer.score == 10) {
+  prompt ("computer won!");
+  gameState = "ended";
+  setGameElements();
+}
+
+}
