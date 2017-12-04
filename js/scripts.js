@@ -138,7 +138,7 @@ function setGamePoints() {
 // podliczenie punktow
 function endGame () {
 if (player.score == 10) {
-  prompt (player.name + "wins!");
+  prompt (player.name + " wins!");
   gameState = "ended";
   setGameElements();
 } else if (computer.score == 10) {
