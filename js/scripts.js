@@ -46,6 +46,7 @@ switch(gameState) {
 }
 }
     setGameElements();
+    endGame ();
 
     //rozpoczecie gry
 
@@ -117,6 +118,7 @@ switch(gameState) {
         computer.score++;
     }
       setGamePoints();
+      endGame ();
 }
 
 function playerPick(playerPick) {
@@ -138,11 +140,11 @@ function setGamePoints() {
 // podliczenie punktow
 function endGame () {
 if (player.score == 10) {
-  prompt (player.name + " wins!");
+  alert (player.name + " wins!");
   gameState = "ended";
   setGameElements();
 } else if (computer.score == 10) {
-  prompt ("computer won!");
+  alert ("computer won!");
   gameState = "ended";
   setGameElements();
 }
